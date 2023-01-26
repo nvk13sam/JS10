@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content {
+            border: 1px solid #000;
+            padding: 16px;
+            text-align: center;
+            background-color: #165;
+        }
+        
+        img {
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content"></div>
+
+    <script src="data.js"></script>
+    <script>
+        const contentEl = document.querySelector('.content');
+        const data = JSON.parse(dataInfo);
+        console.log(data);
+        console.log(apiInfo);
+
+        data.forEach(element => {
+            const imgContent = document.createElement('img');
+            const h1El = document.createElement('h1');
+            const parEl = document.createElement('p');
+            h1El.textContent = element.name;
+            parEl.textContent = element.cont_text;
+            imgContent.src = element.url;
+            contentEl.appendChild(imgContent);
+            contentEl.appendChild(h1El);
+            contentEl.appendChild(parEl);
+        });
+    </script>
+</body>
+
+</html>
